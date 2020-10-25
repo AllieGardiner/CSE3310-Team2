@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name = "CSE3302-Team2"
