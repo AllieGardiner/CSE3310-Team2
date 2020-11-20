@@ -15,11 +15,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        findViewById(R.id.Logoutbutton).setOnClickListener(onclickListner);
+
     if(FirebaseAuth.getInstance().getCurrentUser()==null){
         startSignActivity();
     }
 
-    findViewById(R.id.Logoutbutton).setOnClickListener(onclickListner);
+
+    }
+
+    private void startSignActivity(){
+        Intent intent = new Intent(this, SingupActivity.class);
+        startActivity(intent);
     }
 
     View.OnClickListener onclickListner = new View.OnClickListener() {
@@ -36,10 +43,7 @@ public class MainActivity extends AppCompatActivity {
     };
 
 
-    private void startSignActivity(){
-        Intent intent = new Intent(this, SingupActivity.class);
-        startActivity(intent);
-    }
+
     private void sport(){
         Intent intent = new Intent(this, SportsTrainingFragment.class);
         startActivity(intent);
