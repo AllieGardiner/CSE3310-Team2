@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">Team2</string>
+    <string name="app_name">My LC Sports</string>
+    <string name="action_AboutUs">About Us</string>
+    <string name="action_settings">Settings</string>
 </resources>
