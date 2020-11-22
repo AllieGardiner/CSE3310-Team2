@@ -29,8 +29,6 @@ public class MainActivity extends AppCompatActivity {
         {
             startSignActivity();
         }
-        setContentView(R.layout.activity_main);
-
         TabLayout tabLayout = findViewById(R.id.tabBar);
         TabItem tabTraining = findViewById(R.id.Trainings);
         TabItem tabHealth = findViewById(R.id.Health);
@@ -85,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void startSignActivity(){
-        Intent intent = new Intent(this, SingupActivity.class);
+        Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
     }
 

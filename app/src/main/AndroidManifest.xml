@@ -22,8 +22,6 @@
         </activity>
         <activity android:name=".SingupActivity">
         </activity>
-        <activity android:name=".SportsTrainingFragment">
-        </activity>
     </application>
 
 </manifest>
