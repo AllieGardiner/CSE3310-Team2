@@ -1,5 +1,6 @@
 package com.example.team2;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
@@ -8,7 +9,9 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
@@ -23,11 +26,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        findViewById(R.id.logoutbutton).setOnClickListener(onclickListner);
+
 
         if(FirebaseAuth.getInstance().getCurrentUser()==null)
         {
-            startSignActivity();
+            startSignActivity(SingupActivity.class);
         }
 
         TabLayout tabLayout = findViewById(R.id.tabBar);
@@ -66,6 +69,25 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId())
+        {
+            case R.id.action_settings:
+                Toast.makeText(this,"Setting is selected", Toast.LENGTH_SHORT);
+                startSignActivity(setting.class);
+                break;
+            case R.id.singout:
+                FirebaseAuth.getInstance().signOut();
+                startSignActivity(SingupActivity.class);
+                break;
+            default:
+                break;
+
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     public void openUrl(String url)
     {
         Uri uri = Uri.parse(url);
@@ -83,19 +105,11 @@ public class MainActivity extends AppCompatActivity {
         openUrl("https://oneworldsa.leagueapps.com/classes/1862566-soccer-sessions-tuesday-nights-nov---dec");
     }
 
-    private void startSignActivity(){
-        Intent intent = new Intent(this, SingupActivity.class);
+    private void startSignActivity(Class c){
+        Intent intent = new Intent(this, c);
         startActivity(intent);
     }
 
-    View.OnClickListener onclickListner = v -> {
-        switch (v.getId())
-        {
-            case R.id.logoutbutton:
-                FirebaseAuth.getInstance().signOut();
-                startSignActivity();
-                break;
-        }
-    };
+
 
 }

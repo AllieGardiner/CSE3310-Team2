@@ -58,7 +58,7 @@ public class SingupActivity extends AppCompatActivity {
             switch(v.getId()){
                 case R.id.loginbutton:
                     signUp();
-                    startLoginActivity(LoginActivity.class);
+
                     break;
                 case R.id.gotploginbutton:
                     startLoginActivity(LoginActivity.class);
@@ -90,6 +90,7 @@ public class SingupActivity extends AppCompatActivity {
                                     // Sign in success, update UI with the signed-in user's information
                                     FirebaseUser user = mAuth.getCurrentUser();
                                     startToast( "Success");
+                                    startLoginActivity(LoginActivity.class);
                                 } else {
                                     // If sign in fails, display a message to the user.
                                     if(task.getException()!=null){

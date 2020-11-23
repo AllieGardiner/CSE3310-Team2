@@ -67,6 +67,12 @@ public class PasswordResetActivity extends AppCompatActivity
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
                                 startToast("Email sent.");
+                                finish();
+                            }
+                            else {
+                                if(task.getException()!=null){
+                                    startToast(task.getException().toString());
+                                }
                             }
                         }
                     });
