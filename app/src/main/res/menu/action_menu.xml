@@ -10,7 +10,7 @@
         android:title="@string/action_AboutUs"
         app:showAsAction="never"/>
 
-    <item android:id="@+id/signOut"
+    <item android:id="@+id/singout"
         android:title="Sign Out"
         app:showAsAction="never"/>
 

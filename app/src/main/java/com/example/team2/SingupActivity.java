@@ -46,8 +46,8 @@ public class SingupActivity extends AppCompatActivity {
     }
 
 
-    private void startLoginActivity(){
-        Intent intent = new Intent(this, LoginActivity.class);
+    private void startLoginActivity(Class c){
+        Intent intent = new Intent(this, c);
         startActivity(intent);
     }
 
@@ -58,9 +58,10 @@ public class SingupActivity extends AppCompatActivity {
             switch(v.getId()){
                 case R.id.loginbutton:
                     signUp();
+                    startLoginActivity(LoginActivity.class);
                     break;
                 case R.id.gotploginbutton:
-                    startLoginActivity();
+                    startLoginActivity(LoginActivity.class);
                     break;
                 default:
                     throw new IllegalStateException("Unexpected value: " + v.getId());

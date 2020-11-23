@@ -50,6 +50,13 @@
             android:text="Login"
             android:textSize="36sp" />
 
+        <Button
+            android:id="@+id/go_to_reset_pw_btn"
+            android:layout_width="match_parent"
+            android:layout_height="141dp"
+            android:text="Reset Password"
+            android:textSize="36sp" />
+
     </LinearLayout>
 
 </LinearLayout>

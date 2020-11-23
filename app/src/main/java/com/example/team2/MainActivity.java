@@ -23,12 +23,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        findViewById(R.id.Logoutbutton).setOnClickListener(onclickListner);
+        findViewById(R.id.logoutbutton).setOnClickListener(onclickListner);
 
         if(FirebaseAuth.getInstance().getCurrentUser()==null)
         {
             startSignActivity();
         }
+
         TabLayout tabLayout = findViewById(R.id.tabBar);
         TabItem tabTraining = findViewById(R.id.Trainings);
         TabItem tabHealth = findViewById(R.id.Health);
@@ -83,22 +84,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void startSignActivity(){
-        Intent intent = new Intent(this, LoginActivity.class);
+        Intent intent = new Intent(this, SingupActivity.class);
         startActivity(intent);
     }
 
-    View.OnClickListener onclickListner = new View.OnClickListener()
-    {
-        @Override
-        public void onClick(View v)
+    View.OnClickListener onclickListner = v -> {
+        switch (v.getId())
         {
-            switch (v.getId())
-            {
-                case R.id.Logoutbutton:
-                    FirebaseAuth.getInstance().signOut();
-                    startSignActivity();
-                    break;
-            }
+            case R.id.logoutbutton:
+                FirebaseAuth.getInstance().signOut();
+                startSignActivity();
+                break;
         }
     };
 

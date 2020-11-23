@@ -27,6 +27,7 @@ public class LoginActivity extends AppCompatActivity {
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
         findViewById(R.id.loginbutton).setOnClickListener(onClickListener);
+        findViewById(R.id.go_to_reset_pw_btn).setOnClickListener(onClickListener);
     }
 
     @Override
@@ -42,7 +43,9 @@ public class LoginActivity extends AppCompatActivity {
             switch(v.getId()){
                 case R.id.loginbutton:
                     Login();
-
+                    break;
+                case R.id.go_to_reset_pw_btn:
+                    myStartActivity(PasswordResetActivity.class);
                     break;
                 default:
                     throw new IllegalStateException("Unexpected value: " + v.getId());
@@ -51,8 +54,8 @@ public class LoginActivity extends AppCompatActivity {
     };
 
 
-    private void startMainActivity(){
-        Intent intent = new Intent(this, MainActivity.class);
+    private void myStartActivity(Class c){
+        Intent intent = new Intent(this, c);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
@@ -75,7 +78,7 @@ public class LoginActivity extends AppCompatActivity {
                                 // Sign in success, update UI with the signed-in user's information
                                 FirebaseUser user = mAuth.getCurrentUser();
                                 startToast("Login Success");
-                                startMainActivity();
+                                myStartActivity(MainActivity.class);
                             } else {
                                 if(task.getException()!=null){
                                     startToast( task.getException().toString());
