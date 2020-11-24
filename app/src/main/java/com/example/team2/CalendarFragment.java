@@ -7,6 +7,10 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+// pasted imports
+
+import android.content.Intent;
+import android.widget.Button;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,6 +27,8 @@ public class CalendarFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private Button eCreate;
 
     public CalendarFragment() {
         // Required empty public constructor
@@ -48,17 +54,25 @@ public class CalendarFragment extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+//        setContentView(R.layout.activity_main);
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_calendar, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_calendar, container, false);
+        eCreate = rootView.findViewById(R.id.create);
+
+        eCreate.setOnClickListener(v -> openCreatePage());
+        return rootView;
+    }
+
+    public void openCreatePage() {
+        Intent intent = new Intent(getActivity(), CreateEventPage.class);
+        startActivity(intent);
     }
 }

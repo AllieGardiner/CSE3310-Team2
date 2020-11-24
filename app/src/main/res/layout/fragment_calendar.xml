@@ -1,15 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#5C17D6"
-    tools:context=".CalendarFragment">
+    tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/FRF_TV"
+    <Button
+        android:id="@+id/create"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Calendar Page"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
-</FrameLayout>
+        android:layout_marginBottom="32dp"
+        android:text="Create Event"
+        app:layout_constraintBottom_toBottomOf="@+id/scrollView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView" />
+
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Monday December 7, 2020" />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
