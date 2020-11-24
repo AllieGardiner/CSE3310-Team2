@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 
 import android.content.Intent;
 import android.widget.Button;
+import android.widget.TextView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -18,6 +19,8 @@ import android.widget.Button;
  * create an instance of this fragment.
  */
 public class CalendarFragment extends Fragment {
+
+    private TextView eEventDetails;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -56,8 +59,6 @@ public class CalendarFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
 //        setContentView(R.layout.activity_main);
         super.onCreate(savedInstanceState);
-
-
     }
 
     @Override
@@ -66,8 +67,10 @@ public class CalendarFragment extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_calendar, container, false);
         eCreate = rootView.findViewById(R.id.create);
-
         eCreate.setOnClickListener(v -> openCreatePage());
+        TextView textView = rootView.findViewById(R.id.etEventDetails);
+        // TODO: Query event details from database and format string for display
+        textView.setText("Title: Soccer Practice\nDescription: A bunch of words or somethin\n");
         return rootView;
     }
 

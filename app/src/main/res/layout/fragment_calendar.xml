@@ -34,17 +34,19 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
-
-
-            <TextView
-                android:id="@+id/textView"
+                android:id="@+id/etEventDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Monday December 7, 2020" />
+
+
+            <TextView
+                android:id="@+id/etEventDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:translationX="20px"
+                android:translationY="5px" />
 
 
         </LinearLayout>
