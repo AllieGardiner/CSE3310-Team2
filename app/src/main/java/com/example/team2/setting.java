@@ -21,7 +21,7 @@ public class setting extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.setting_personal_info);
+        setContentView(R.layout.profile);
 
 
     }
