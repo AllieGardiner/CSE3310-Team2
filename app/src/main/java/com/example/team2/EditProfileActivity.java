@@ -1,10 +1,14 @@
 package com.example.team2;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,6 +22,10 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.SetOptions;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -26,10 +34,10 @@ public class EditProfileActivity extends AppCompatActivity
 {
     EditText profile_email,profile_phone,profile_name,address_profile;
     ImageView profileImage;
-    Button save_button;
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
     FirebaseUser user;
+    StorageReference storageReference;
 
 
     @Override
@@ -49,8 +57,19 @@ public class EditProfileActivity extends AppCompatActivity
         fStore = FirebaseFirestore.getInstance();
         user = fAuth.getCurrentUser();
 
+        storageReference = FirebaseStorage.getInstance().getReference();
+        StorageReference profileRef = storageReference.child("users/"+fAuth.getCurrentUser().getUid()+"/profile.jpg");
+        profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Picasso.get().load(uri).into(profileImage);
+            }
+        });
+
+
 
         findViewById(R.id.confirm_botton).setOnClickListener(onClickListener);
+        findViewById(R.id.change_Image).setOnClickListener(onClickListener);
 
         profileImage = findViewById(R.id.profile_image);
         profile_email=findViewById(R.id.profile_email);
@@ -65,7 +84,38 @@ public class EditProfileActivity extends AppCompatActivity
         profile_name.setText(fullname);
         address_profile.setText(address);
 
+
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode ==1000){
+            if(resultCode== Activity.RESULT_OK){
+                Uri imageUri = data.getData();
+                profileImage.setImageURI(imageUri);
+
+                uploadedImageToFirebase(imageUri);
+            }
+        }
+    }
+
+    private void uploadedImageToFirebase(Uri imageUri){
+        StorageReference fileRef = storageReference.child("users/"+fAuth.getCurrentUser().getUid()+"/profile.jpg");
+        fileRef.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                Toast.makeText(EditProfileActivity.this,"Image Uploaded.", Toast.LENGTH_SHORT).show();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(EditProfileActivity.this,"Fail",Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+
 
     View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
@@ -111,7 +161,10 @@ public class EditProfileActivity extends AppCompatActivity
                     break;
 
 
-
+                case R.id.change_Image:
+                    Intent openGalleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                    startActivityForResult(openGalleryIntent,1000);
+                    break;
                 default:
                     throw new IllegalStateException("Unexpected value: " + v.getId());
             }
