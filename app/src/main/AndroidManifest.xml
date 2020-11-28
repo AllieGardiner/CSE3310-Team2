@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Team2">
-        <activity android:name=".CreateEventPage"></activity>
+
+        <activity android:name=".CreateEventPage" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,10 +20,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity"></activity>
-        <activity android:name=".SingupActivity"></activity>
-        <activity android:name=".PasswordResetActivity"></activity>
-        <activity android:name=".setting"></activity>
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".SingupActivity" />
+        <activity android:name=".PasswordResetActivity" />
+        <activity android:name=".setting" />
+        <activity android:name=".EditProfileActivity" />
     </application>
 
 </manifest>

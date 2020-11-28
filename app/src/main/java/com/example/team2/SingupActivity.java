@@ -2,6 +2,7 @@ package com.example.team2;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -10,14 +11,22 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class SingupActivity extends AppCompatActivity {
     private static final String TAG = "SignUPActivity";
     private FirebaseAuth mAuth;
+    String userID;
+    FirebaseFirestore fstore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +35,7 @@ public class SingupActivity extends AppCompatActivity {
 
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
+        fstore = FirebaseFirestore.getInstance();
         findViewById(R.id.loginbutton).setOnClickListener(onClickListener);
         findViewById(R.id.gotploginbutton).setOnClickListener(onClickListener);
     }
@@ -90,6 +100,19 @@ public class SingupActivity extends AppCompatActivity {
                                     // Sign in success, update UI with the signed-in user's information
                                     FirebaseUser user = mAuth.getCurrentUser();
                                     startToast( "Success");
+                                    userID = mAuth.getCurrentUser().getUid();
+                                    DocumentReference documentReference = fstore.collection("users").document(userID);
+                                    Map<String,Object> userdata = new HashMap<>();
+                                    userdata.put("email",email);
+                                    userdata.put("name","User");
+                                    userdata.put("phone","Phone number is empty");
+                                    userdata.put("address","Dallas, Texas");
+                                    documentReference.set(userdata).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void aVoid) {
+                                            Log.d(TAG,"user profile is creaed for "+ userID);
+                                        }
+                                    });
                                     startLoginActivity(LoginActivity.class);
                                 } else {
                                     // If sign in fails, display a message to the user.
