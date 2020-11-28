@@ -1,15 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/holo_green_light"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    android:background="@android:color/white"
     tools:context=".ChildrensSportsFragment">
 
-    <TextView
-        android:id="@+id/CSF_TV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Children's Sports Fragment"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#E8DFDF"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="WINTER BASKETBALL YOUTH LEAGUE"
+                android:textAlignment="center"
+                android:textColor="#FF0000"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                tools:text="WINTER BASKETBALL YOUTH LEAGUE" />
+
+            <ImageView
+                android:id="@+id/imageView9"
+                android:layout_width="wrap_content"
+                android:layout_height="200dp"
+                tools:src="@tools:sample/backgrounds/scenic" />
+
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Recreational league focused on skill development, team work, and character development. Practices are once a week at the LC Sports &amp; Rec Center and games will be held on Saturdays at the LC or Grace Prep. \n\n Cost is $100 and includes a reversible jersey, shorts, and sports bag. \n\n Evaluations are soon! Click the link below for additional information."
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                tools:text="Recreational league focused on skill development, team work, and character development. Practices are once a week at the LC Sports &amp; Rec Center and games will be held on Saturdays at the LC or Grace Prep. \n\n​ Cost is $100 and includes a reversible jersey, shorts, and sports bag. \n\n Evaluations are soon! Click the link below for additional information." />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Register HERE"
+                android:textSize="18sp"
+                android:onClick="Basketball_Reg"
+                tools:ignore="OnClick" />
+
+            <TextView
+                android:id="@+id/textView21"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="FALL SOCCER SESSIONS"
+                android:textAlignment="center"
+                android:textColor="#FF0000"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                tools:text="FALL SOCCER SESSIONS" />
+
+            <ImageView
+                android:id="@+id/imageView11"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                tools:src="@tools:sample/backgrounds/scenic" />
+
+            <TextView
+                android:id="@+id/textView22"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Group training sessions for children ages 3 - 12. Trainers Craig Allen and Garrett Dean will lead in age/skill specific soccer drills that will improve the participants overall soccer level. \n\n TUESDAY EVENING TRAINING \n November 3rd - December 15th \n *Bonus/Free Session on Nov. 24 \n (Week of Thanksgiving) \n 6 Week Session $50"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Register HERE"
+                android:textSize="18sp"
+                android:onClick="Soccer_Reg"
+                tools:ignore="OnClick" />
+
+        </LinearLayout>
+    </ScrollView>
+
 </FrameLayout>
