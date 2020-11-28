@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         TabItem tabTraining = findViewById(R.id.Trainings);
         TabItem tabHealth = findViewById(R.id.Health);
         TabItem tabChildren = findViewById(R.id.Children);
-        TabItem tabCalendar = findViewById(R.id.Calendar);
+        TabItem tabRental = findViewById(R.id.Calendar);
         final ViewPager viewPager = findViewById(R.id.viewPager);
 
         PagerAdapter pagerAdapter = new PagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
@@ -80,6 +80,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.singout:
                 FirebaseAuth.getInstance().signOut();
                 startSignActivity(SingupActivity.class);
+                break;
+            case R.id.messageButton:
+                startSignActivity(Messaging.class);
                 break;
             default:
                 break;

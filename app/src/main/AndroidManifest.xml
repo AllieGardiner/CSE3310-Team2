@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Team2">
-
+        <activity android:name=".Messaging"></activity>
         <activity android:name=".CreateEventPage" />
         <activity android:name=".MainActivity">
             <intent-filter>
