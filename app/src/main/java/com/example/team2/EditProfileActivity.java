@@ -41,7 +41,8 @@ public class EditProfileActivity extends AppCompatActivity
     FirebaseFirestore fStore;
     FirebaseUser user;
     StorageReference storageReference;
-
+    boolean verified;
+    boolean checkB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -55,7 +56,8 @@ public class EditProfileActivity extends AppCompatActivity
         String  email = data.getStringExtra("email");
         String  address = data.getStringExtra("address");
         String  phone = data.getStringExtra("phone");
-        boolean checkB = data.getBooleanExtra("checkB",false);
+        checkB = data.getBooleanExtra("checkB",false);
+        verified = data.getBooleanExtra("verified",false);
 
 
 
@@ -86,19 +88,22 @@ public class EditProfileActivity extends AppCompatActivity
         isemployee=findViewById(R.id.checkBox);
 
 
+
         isemployee.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(buttonView.isChecked()) {
+                if(buttonView.isChecked()&& verified !=true) {
 
+                    Intent intent = verification.makeIntent(EditProfileActivity.this);
+                    startActivityForResult(intent,1014);
 
-
-                    DocumentReference docRef = fStore.collection("users").document(user.getUid());
-                    docRef.update("isEmployee",true);
                 }
-                else{
-                    DocumentReference docRef = fStore.collection("users").document(user.getUid());
-                    docRef.update("isEmployee",false);
+                else if(!buttonView.isChecked()&&verified == true){
+                    checkB=false;
+                }
+
+                else if(buttonView.isChecked()&&verified == true){
+                    checkB=true;
                 }
             }
         });
@@ -121,6 +126,12 @@ public class EditProfileActivity extends AppCompatActivity
                 profileImage.setImageURI(imageUri);
 
                 uploadedImageToFirebase(imageUri);
+            }
+        }
+        else{
+            verified = data.getBooleanExtra("verify",false);
+            if(verified){
+                checkB=true;
             }
         }
     }
@@ -165,7 +176,9 @@ public class EditProfileActivity extends AppCompatActivity
                             docRef.update("name",profile_name.getText().toString(),
                                     "address",address_profile.getText().toString(),
                                     "phone",profile_phone.getText().toString(),
-                                    "email",email).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    "email",email,
+                                    "isEmployee",checkB,
+                                    "verified",verified).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {
                                     Toast.makeText(EditProfileActivity.this,"Profile is updated",Toast.LENGTH_SHORT).show();

@@ -28,6 +28,7 @@ public class setting extends AppCompatActivity {
     FirebaseFirestore fStore;
     String userID;
     Boolean isemployee = false;
+    Boolean verified = false;
     StorageReference storageReference;
     ImageView profileImage;
 
@@ -60,6 +61,7 @@ public class setting extends AppCompatActivity {
                 email.setText(value.getString("email"));
                 address.setText(value.getString("address"));
                 isemployee=value.getBoolean("isEmployee");
+                verified=value.getBoolean("verified");
                 StorageReference profileRef = storageReference.child("users/"+fAuth.getCurrentUser().getUid()+"/profile.jpg");
                 profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
@@ -97,6 +99,7 @@ public class setting extends AppCompatActivity {
         intent.putExtra("email",email.getText().toString());
         intent.putExtra("phone",phone.getText().toString());
         intent.putExtra("checkB",isemployee);
+        intent.putExtra("verified",verified);
         startActivity(intent);
     }
 }

@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Team2">
-        <activity android:name=".Messaging"></activity>
+        <activity android:name=".verification"
+            android:theme="@style/AppTheme.CustomTheme"></activity>
+        <activity android:name=".Messaging" />
         <activity android:name=".CreateEventPage" />
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -25,6 +27,7 @@
         <activity android:name=".PasswordResetActivity" />
         <activity android:name=".setting" />
         <activity android:name=".EditProfileActivity" />
+
     </application>
 
 </manifest>
