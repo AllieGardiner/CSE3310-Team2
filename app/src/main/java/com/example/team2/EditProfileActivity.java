@@ -90,6 +90,9 @@ public class EditProfileActivity extends AppCompatActivity
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(buttonView.isChecked()) {
+
+
+
                     DocumentReference docRef = fStore.collection("users").document(user.getUid());
                     docRef.update("isEmployee",true);
                 }
