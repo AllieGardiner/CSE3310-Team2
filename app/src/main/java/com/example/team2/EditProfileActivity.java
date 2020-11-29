@@ -11,6 +11,8 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -34,6 +36,7 @@ public class EditProfileActivity extends AppCompatActivity
 {
     EditText profile_email,profile_phone,profile_name,address_profile;
     ImageView profileImage;
+    CheckBox isemployee;
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
     FirebaseUser user;
@@ -52,6 +55,10 @@ public class EditProfileActivity extends AppCompatActivity
         String  email = data.getStringExtra("email");
         String  address = data.getStringExtra("address");
         String  phone = data.getStringExtra("phone");
+        boolean checkB = data.getBooleanExtra("checkB",false);
+
+
+
 
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
@@ -76,14 +83,29 @@ public class EditProfileActivity extends AppCompatActivity
         profile_phone=findViewById(R.id.profile_phone);
         profile_name=findViewById(R.id.profile_name);
         address_profile=findViewById(R.id.address_profile);
+        isemployee=findViewById(R.id.checkBox);
 
+
+        isemployee.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(buttonView.isChecked()) {
+                    DocumentReference docRef = fStore.collection("users").document(user.getUid());
+                    docRef.update("isEmployee",true);
+                }
+                else{
+                    DocumentReference docRef = fStore.collection("users").document(user.getUid());
+                    docRef.update("isEmployee",false);
+                }
+            }
+        });
 
 
         profile_email.setText(email);
         profile_phone.setText(phone);
         profile_name.setText(fullname);
         address_profile.setText(address);
-
+        isemployee.setChecked(checkB);
 
     }
 
@@ -144,7 +166,9 @@ public class EditProfileActivity extends AppCompatActivity
                                 @Override
                                 public void onSuccess(Void aVoid) {
                                     Toast.makeText(EditProfileActivity.this,"Profile is updated",Toast.LENGTH_SHORT).show();
+                                    myStartActivity(setting.class);
                                     finish();
+
                                 }
                             });
                             Toast.makeText(EditProfileActivity.this,"Email is changed",Toast.LENGTH_SHORT).show();
@@ -171,7 +195,11 @@ public class EditProfileActivity extends AppCompatActivity
         }
     };
 
-
+    private void myStartActivity(Class c){
+        Intent intent = new Intent(this, c);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+    }
 
 
 }

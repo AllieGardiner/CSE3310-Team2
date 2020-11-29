@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -26,6 +27,7 @@ public class setting extends AppCompatActivity {
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
     String userID;
+    Boolean isemployee = false;
     StorageReference storageReference;
     ImageView profileImage;
 
@@ -57,7 +59,7 @@ public class setting extends AppCompatActivity {
                 name.setText(value.getString("name"));
                 email.setText(value.getString("email"));
                 address.setText(value.getString("address"));
-
+                isemployee=value.getBoolean("isEmployee");
                 StorageReference profileRef = storageReference.child("users/"+fAuth.getCurrentUser().getUid()+"/profile.jpg");
                 profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
@@ -70,6 +72,7 @@ public class setting extends AppCompatActivity {
 
         findViewById(R.id.confirm_botton).setOnClickListener(onClickListener);
 
+        //Toast.makeText(setting.this,""+ isemployee,Toast.LENGTH_SHORT).show();
     }
 
 
@@ -93,6 +96,7 @@ public class setting extends AppCompatActivity {
         intent.putExtra("address",address.getText().toString());
         intent.putExtra("email",email.getText().toString());
         intent.putExtra("phone",phone.getText().toString());
+        intent.putExtra("checkB",isemployee);
         startActivity(intent);
     }
 }

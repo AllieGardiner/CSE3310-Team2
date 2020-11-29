@@ -107,6 +107,7 @@ public class SingupActivity extends AppCompatActivity {
                                     userdata.put("name","User");
                                     userdata.put("phone","Phone number is empty");
                                     userdata.put("address","Dallas, Texas");
+                                    userdata.put("isEmployee","0");
                                     documentReference.set(userdata).addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void aVoid) {
