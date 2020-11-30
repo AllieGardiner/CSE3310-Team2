@@ -16,11 +16,10 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#E8DFDF"
-            android:orientation="vertical">
+            android:orientation="vertical" >
 
             <TextView
-                android:id="@+id/textView16"
+                android:id="@+id/children_sports_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="WINTER BASKETBALL YOUTH LEAGUE"
@@ -37,7 +36,7 @@
                 tools:src="@tools:sample/backgrounds/scenic" />
 
             <TextView
-                android:id="@+id/textView17"
+                android:id="@+id/children_sports_2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="Recreational league focused on skill development, team work, and character development. Practices are once a week at the LC Sports &amp; Rec Center and games will be held on Saturdays at the LC or Grace Prep. \n\n Cost is $100 and includes a reversible jersey, shorts, and sports bag. \n\n Evaluations are soon! Click the link below for additional information."
@@ -56,7 +55,7 @@
                 tools:ignore="OnClick" />
 
             <TextView
-                android:id="@+id/textView21"
+                android:id="@+id/children_sports_3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="FALL SOCCER SESSIONS"
@@ -73,7 +72,7 @@
                 tools:src="@tools:sample/backgrounds/scenic" />
 
             <TextView
-                android:id="@+id/textView22"
+                android:id="@+id/children_sports_4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Group training sessions for children ages 3 - 12. Trainers Craig Allen and Garrett Dean will lead in age/skill specific soccer drills that will improve the participants overall soccer level. \n\n TUESDAY EVENING TRAINING \n November 3rd - December 15th \n *Bonus/Free Session on Nov. 24 \n (Week of Thanksgiving) \n 6 Week Session $50"
