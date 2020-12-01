@@ -84,6 +84,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.messageButton:
                 startSignActivity(Messaging.class);
                 break;
+            case R.id.action_AboutUs:
+                startSignActivity(AboutUs.class);
+                break;
             default:
                 break;
 

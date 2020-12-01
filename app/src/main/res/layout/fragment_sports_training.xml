@@ -17,7 +17,6 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/training_text"
                 android:layout_width="match_parent"
                 android:layout_height="130dp"
                 android:paddingLeft="5dp"
@@ -36,7 +35,6 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/training_text_2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -50,10 +48,8 @@
                     tools:text="TRAINING DONE DIFFERENTLY" />
 
                 <TextView
-                    android:id="@+id/training_text_3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border"
                     android:gravity="center_horizontal"
                     android:padding="10dp"
                     android:text="ALONG WITH TRAINING FOR ATHLETIC RESULTS, WE BELIEVE SPORTS PROVIDE THE PERFECT PLAYING FIELD TO BUILD CHARACTER &amp; CHARACTER BUILDS A TRUSTED NEXT GENERATION."
@@ -72,7 +68,6 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/training_text_4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -86,10 +81,8 @@
                     tools:text="WHAT WE OFFER" />
 
                 <TextView
-                    android:id="@+id/training_text_5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border"
                     android:gravity="center_horizontal"
                     android:padding="10dp"
                     android:text="ONE-ON-ONE PRIVATE SESSIONS SMALL GROUP SESSIONS HOURLY SESSIONS TRAINERS WHO ARE EXPERIENCED AND TRUSTED"
@@ -102,7 +95,6 @@
             </LinearLayout>
 
             <Button
-                android:id="@+id/booking"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="REQUEST BOOKING"
@@ -113,7 +105,6 @@
                 tools:ignore="OnClick" />
 
             <TextView
-                android:id="@+id/training_text_6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="SPORTS OFFERED:"
@@ -124,7 +115,6 @@
                 tools:text="SPORTS OFFERED:" />
 
             <TextView
-                android:id="@+id/training_text_7"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="SOCCER"
@@ -146,13 +136,11 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/imageView3"
                         android:layout_width="match_parent"
                         android:layout_height="128dp"
                         tools:src="@drawable/profile" />
 
                     <TextView
-                        android:id="@+id/training_text_8"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="COACH"
@@ -168,13 +156,11 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/imageView4"
                         android:layout_width="match_parent"
                         android:layout_height="128dp"
                         tools:src="@drawable/profile" />
 
                     <TextView
-                        android:id="@+id/training_text_9"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="COACH"
@@ -187,7 +173,6 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/training_text_10"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="BASKETBALL"
@@ -209,13 +194,11 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/imageView5"
                         android:layout_width="match_parent"
                         android:layout_height="128dp"
                         tools:src="@drawable/profile" />
 
                     <TextView
-                        android:id="@+id/training_text_11"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="COACH"
@@ -238,7 +221,6 @@
                         tools:src="@drawable/profile" />
 
                     <TextView
-                        android:id="@+id/training_text_12"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="COACH"
@@ -251,7 +233,6 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/training_text_13"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="ATHLETIC CONDITIONING"
@@ -279,7 +260,6 @@
                         tools:src="@drawable/profile" />
 
                     <TextView
-                        android:id="@+id/training_text_14"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="COACH"
@@ -293,7 +273,6 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/training_text_15"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="BASEBALL &amp; SOFTBALL"
@@ -315,13 +294,11 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/imageView8"
                         android:layout_width="match_parent"
                         android:layout_height="128dp"
                         tools:src="@drawable/profile" />
 
                     <TextView
-                        android:id="@+id/training_text_16"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="COACH"
@@ -338,13 +315,11 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/imageVie9"
                         android:layout_width="match_parent"
                         android:layout_height="128dp"
                         tools:src="@drawable/profile" />
 
                     <TextView
-                        android:id="@+id/training_text_17"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="COACH"
@@ -357,7 +332,6 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/training_text_18"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="GOLF"
@@ -379,13 +353,11 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/imageView2"
                         android:layout_width="match_parent"
                         android:layout_height="128dp"
                         tools:src="@drawable/profile" />
 
                     <TextView
-                        android:id="@+id/training_text_19"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="COACH"
@@ -402,13 +374,11 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/imageView"
                         android:layout_width="match_parent"
                         android:layout_height="128dp"
                         tools:src="@drawable/profile" />
 
                     <TextView
-                        android:id="@+id/training_text_20"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="COACH"

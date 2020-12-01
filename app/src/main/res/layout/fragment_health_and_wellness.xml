@@ -16,7 +16,6 @@
             android:orientation="vertical" >
 
             <TextView
-                android:id="@+id/health_wellness_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingLeft="10dp"
@@ -32,7 +31,6 @@
                 android:layout_marginRight="10dp">
 
                 <TextView
-                    android:id="@+id/point_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="01"
@@ -43,7 +41,6 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/point_1_dis"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="reclaimed\n wellness"
@@ -62,7 +59,6 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/health_wellness_4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif"
@@ -72,7 +68,6 @@
                     android:textSize="24sp" />
 
                 <TextView
-                    android:id="@+id/health_wellness_5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif"
@@ -82,7 +77,6 @@
                     android:textSize="24sp" />
 
                 <TextView
-                    android:id="@+id/health_wellness_6"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif"
@@ -92,7 +86,6 @@
                     android:textSize="24sp" />
 
                 <TextView
-                    android:id="@+id/health_wellness_7"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif"
@@ -102,7 +95,6 @@
                     android:textSize="24sp" />
 
                 <TextView
-                    android:id="@+id/health_wellness_8"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif"
@@ -112,7 +104,6 @@
                     android:textSize="24sp" />
 
                 <TextView
-                    android:id="@+id/health_wellness_9"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif"
@@ -122,7 +113,6 @@
                     android:textSize="24sp" />
 
                 <TextView
-                    android:id="@+id/health_wellness_10"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif"
@@ -132,7 +122,6 @@
                     android:textSize="24sp" />
 
                 <TextView
-                    android:id="@+id/health_wellness_11"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif"
@@ -149,7 +138,6 @@
                 android:layout_marginRight="10dp">
 
                 <TextView
-                    android:id="@+id/point_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="02"
@@ -160,7 +148,6 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/point_2_dis"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="FITNESS\n MEMBERSHIPS"
@@ -178,7 +165,6 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/health_wellness_12"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Member Options"
@@ -188,7 +174,6 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/health_wellness_13"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="3 Month                            $40\n6 Month                            $75\nIndividual Annual          $125\nFamily Annual               $275\n"
@@ -203,7 +188,6 @@
                 android:layout_marginRight="10dp">
 
                 <TextView
-                    android:id="@+id/point_3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="03"
@@ -214,7 +198,6 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/point_3_dis"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="LET YOUR\nINSURANCE PAY FOR\nYOUR MEMBERSHIP"
@@ -232,7 +215,6 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/health_wellness_14"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="CONTACT"
@@ -242,7 +224,6 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/health_wellness_15"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Bekah Lewis\nrhinobekah@gmail.com"
@@ -250,7 +231,6 @@
                     android:textSize="22sp" />
 
                 <TextView
-                    android:id="@+id/health_wellness_16"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Mollie Carnahan\nmbmcdearmon@sbcglobal.net\n"
@@ -265,7 +245,6 @@
                 android:layout_marginRight="10dp">
 
                 <TextView
-                    android:id="@+id/point_4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="04"
@@ -276,7 +255,6 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/point_4_dis"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="PickleBall"
@@ -296,7 +274,6 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/health_wellness_17"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Pickleball times are:\nMonday afternoons from 12PM - 3PM\nWednesdays from 10:30AM - 1:30PM\nFridays from 10AM - 2PM.\n"
@@ -304,7 +281,6 @@
                     android:textSize="22sp" />
 
                 <TextView
-                    android:id="@+id/health_wellness_18"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="\nBring $2 to play! Call the LC for more details.\n"
@@ -320,7 +296,6 @@
                 android:layout_marginRight="10dp">
 
                 <TextView
-                    android:id="@+id/point_5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="05"
@@ -331,7 +306,6 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/point_5_dis"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="open gym"
@@ -351,7 +325,6 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/health_wellness_19"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Open gym when available.  $2 per person.\n*Call 817-457-5276 to inquire about times or check twitter or insta.\n"
@@ -359,7 +332,6 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/health_wellness_20"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#4B0082"
@@ -370,7 +342,6 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/health_wellness_21"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingLeft="10dp"
@@ -380,7 +351,6 @@
                 android:textSize="22sp" />
 
             <TextView
-                android:id="@+id/health_wellness_22"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Contact"
@@ -390,7 +360,6 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/health_wellness_23"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="kparlin@lakechurchdfw.org\n"
