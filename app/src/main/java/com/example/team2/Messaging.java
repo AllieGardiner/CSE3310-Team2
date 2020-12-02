@@ -47,7 +47,7 @@ public class Messaging extends AppCompatActivity {
         setContentView(R.layout.content_messaging);
         //Toolbar toolbar = findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar);
-
+/*
         sendButton = (Button) findViewById(R.id.sendButton);
         editMsg = (EditText) findViewById(R.id.editMessage);
         //name = findViewById(R.id.profile_name);
@@ -80,7 +80,7 @@ public class Messaging extends AppCompatActivity {
                 editMsg.setText("");
             }
         });
-/*
+
         dbr.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
@@ -107,7 +107,7 @@ public class Messaging extends AppCompatActivity {
 
             }
         });
-*/
+
         dbr.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -139,7 +139,7 @@ public class Messaging extends AppCompatActivity {
             arrayAdpt.notifyDataSetChanged();
         }
     }
-/*
+
     private void sendMessage(String sender, String receiver, String message){
 
         HashMap<String, Object> hashMap = new HashMap<>();
@@ -150,4 +150,5 @@ public class Messaging extends AppCompatActivity {
         dbr.child("Chats").push().setValue(hashMap);
     }
 */
- }
+    }
+}
