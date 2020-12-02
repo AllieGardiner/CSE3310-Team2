@@ -7,12 +7,14 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -26,7 +28,7 @@ import java.util.Map;
 
 public class Messaging extends AppCompatActivity {
 
-    private DatabaseReference dbr;
+
     Button sendButton;
     EditText editMsg;
 
@@ -35,24 +37,30 @@ public class Messaging extends AppCompatActivity {
     ArrayAdapter arrayAdpt;
 
     String username, SelectedConversation, user_msg_key;
+    View name, email;
+
+    private DatabaseReference dbr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_messaging);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        setContentView(R.layout.content_messaging);
+        //Toolbar toolbar = findViewById(R.id.toolbar);
+        //setSupportActionBar(toolbar);
 
         sendButton = (Button) findViewById(R.id.sendButton);
         editMsg = (EditText) findViewById(R.id.editMessage);
+        //name = findViewById(R.id.profile_name);
+        //email = findViewById(R.id.profile_email);
 
         conversation = (ListView) findViewById(R.id.lvMessaging);
         arrayAdpt = new ArrayAdapter(this, android.R.layout.simple_list_item_1, listConversation);
         conversation.setAdapter(arrayAdpt);
 
-        username = getIntent().getExtras().get("user_name").toString();
-        SelectedConversation = getIntent().getExtras().get("selected_topic").toString();
+        //name = getIntent().getExtras().get("name").toString();
+        SelectedConversation = getIntent().getExtras().get("selected_conversation").toString();
         setTitle(SelectedConversation);
+
 
         dbr = FirebaseDatabase.getInstance().getReference().child(SelectedConversation);
 
@@ -66,11 +74,13 @@ public class Messaging extends AppCompatActivity {
                 DatabaseReference dbr2 = dbr.child(user_msg_key);
                 Map<String, Object> map2 = new HashMap<String, Object>();
                 map2.put("msg", editMsg.getText().toString());
-                map2.put("user", username);
+                map2.put("name", name);
                 dbr2.updateChildren(map2);
+
+                editMsg.setText("");
             }
         });
-
+/*
         dbr.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
@@ -97,6 +107,23 @@ public class Messaging extends AppCompatActivity {
 
             }
         });
+*/
+        dbr.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                String value = snapshot.getValue(String.class);
+                //Log.d(TAG, "Value is: " + value);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                // Failed to read value
+                //Log.w(TAG, "Failed to read value.", error.toException());
+            }
+        });
+
     }
 
 
@@ -112,6 +139,15 @@ public class Messaging extends AppCompatActivity {
             arrayAdpt.notifyDataSetChanged();
         }
     }
+/*
+    private void sendMessage(String sender, String receiver, String message){
 
+        HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put("sender", sender);
+        hashMap.put("receiver", receiver);
+        hashMap.put("message", message);
 
-}
+        dbr.child("Chats").push().setValue(hashMap);
+    }
+*/
+ }
