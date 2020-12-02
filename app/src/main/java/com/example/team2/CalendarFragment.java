@@ -13,6 +13,8 @@ import android.content.Intent;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.firebase.database.DatabaseReference;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link CalendarFragment#newInstance} factory method to
@@ -21,16 +23,7 @@ import android.widget.TextView;
 public class CalendarFragment extends Fragment {
 
     private TextView eEventDetails;
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
+    private DatabaseReference reff;
     private Button eCreate;
 
     public CalendarFragment() {
@@ -49,8 +42,6 @@ public class CalendarFragment extends Fragment {
     public static CalendarFragment newInstance(String param1, String param2) {
         CalendarFragment fragment = new CalendarFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
@@ -67,10 +58,16 @@ public class CalendarFragment extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_calendar, container, false);
         eCreate = rootView.findViewById(R.id.create);
-        eCreate.setOnClickListener(v -> openCreatePage());
+        eCreate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CalendarFragment.this.openCreatePage();
+            }
+        });
         TextView textView = rootView.findViewById(R.id.etEventDetails);
         // TODO: Query event details from database and format string for display
-        textView.setText("Title: Soccer Practice\nDescription: A bunch of words or somethin\n");
+        String event_text = "Monday December 7, 2020\n\tTitle: Soccer Practice\n\tDescription: A bunch of words or somethin\n";
+        textView.setText(event_text);
         return rootView;
     }
 
