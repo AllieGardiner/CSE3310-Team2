@@ -13,7 +13,7 @@
         <ListView
             android:id="@+id/lvMessaging"
             android:layout_width="match_parent"
-            android:layout_height="661dp" />
+            android:layout_height="573dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -23,7 +23,7 @@
             <EditText
                 android:id="@+id/editMessage"
                 android:layout_width="313dp"
-                android:layout_height="match_parent"
+                android:layout_height="65dp"
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="Type Message Here"
