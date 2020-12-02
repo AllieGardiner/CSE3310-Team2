@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
                 startSignActivity(SingupActivity.class);
                 break;
             case R.id.messageButton:
-                startSignActivity(Conversations.class);
+                startSignActivity(Messaging.class);
                 break;
             default:
                 break;
