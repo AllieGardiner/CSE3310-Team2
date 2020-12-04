@@ -14,6 +14,7 @@
         <activity android:name=".verification"
             android:theme="@style/AppTheme.CustomTheme"></activity>
         <activity android:name=".Messaging" />
+        <activity android:name=".Conversations" />
         <activity android:name=".AboutUs" />
         <activity android:name=".CreateEventPage" />
         <activity android:name=".MainActivity">

@@ -4,4 +4,6 @@
     <string name="recreation_associative">Ajaé  Dewitt-Davis</string>
     <string name="recreation_administrative_assistant">Kristen Woods</string>
     <string name="action_AboutUs">About Us</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
